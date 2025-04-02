@@ -95,6 +95,10 @@ export class App extends React.Component<{}, AppState> {
   }
 
   private startClockNameInterval(): void {
+    if (this.nameId !== null) {
+      window.clearInterval(this.nameId);
+    }
+
     this.nameId = window.setInterval(() => {
       const newClockName = getRandomName();
 
